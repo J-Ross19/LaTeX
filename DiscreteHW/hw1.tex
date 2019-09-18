@@ -14,7 +14,7 @@
 	Rutgers University - New Brunswick\\
 	\texttt{jjr276@scarletmail.rutgers.edu}}
 
-\date{18 December 2019}
+\date{18 September 2019}
 
 \maketitle
 
@@ -96,9 +96,23 @@ Problem: Use boolean algebra to show that $\neg p \rightarrow (q \rightarrow r)$
 Problem: Use boolean algebra to show that $(p \bigvee q) \bigwedge (\neg p \bigvee r) \rightarrow (q \bigvee r)$ is a tautology
 
 \begin{itemize}
-	\item $\neg p \rightarrow (q \rightarrow r) \equiv p \bigvee (\neg q \bigvee r)$ by the implication law
-	\item $p \bigvee (\neg q \bigvee r) \equiv \neg q \bigvee (p \bigvee r)$ by the commutative and associative laws
-	\item $\neg q \bigvee (p \bigvee r) \equiv q \rightarrow (p \bigvee q)$ by the implication law 
+	\item $(p \bigvee q) \bigwedge (\neg p \bigvee r) \rightarrow (q \bigvee r) \equiv \neg ((p \bigvee q) \bigwedge (\neg p \bigvee r)) \bigvee (\neg p \bigvee r)$ by the implication law
+	\item $\neg ((p \bigvee q) \bigwedge (\neg p \bigvee r)) \bigvee (\neg p \bigvee r) \equiv \neg (p \bigvee q) \bigvee \neg (\neg p \bigvee r) \bigvee (\neg p \bigvee r)$ by De Morgan law
+	\item $\neg (p \bigvee q) \bigvee \neg (\neg p \bigvee r) \bigvee (\neg p \bigvee r) \equiv \neg (p \bigvee q) \bigvee T$ by the Associative and Negation law
+	\item $\neg (p \bigvee q) \bigvee T \equiv T$ by Domination law, proving $(p \bigvee q) \bigwedge (\neg p \bigvee r) \rightarrow (q \bigvee r)$ is a tautology 
 \end{itemize}
+
+\section*{1.4}
+\subsubsection*{36a)}
+Problem: Find a counterexample (if possible) to $\forall x(x^2 \neq x)$ where the domain of x is all real numbers\\
+For $x=1$, $(1)^2=(1)$, meaning $x^2 = x$, providing a counterexample to $\forall x(x^2 \neq x)$
+
+\subsubsection*{36b)}
+Problem: Find a counterexample (if possible) to $\forall x(x^2 \neq 2)$ where the domain of x is all real numbers\\
+For $x=1$, $(\sqrt{2})^2=2$, meaning $x^2=2$, providing a counterexample to $\forall x(x^2 \neq 2)$
+
+\subsubsection*{36c)}
+Problem: Find a counterexample (if possible) to $\forall x(|x| > 0)$ where the domain of x is all real numbers\\
+For $x=0$, $|0| = 0$, meaning $|x| = 0$, providing a counterexample to $\forall x(|x| > 0)$
 
 \end{document}
