@@ -1,4 +1,4 @@
-% 1st Discrete Mathematics assignment
+%1st Discrete Mathematics assignment
 
 \documentclass{article}
 \usepackage{times}
@@ -7,9 +7,10 @@
 \begin{document}
 
 % top matter of the article
-\title{Learning to structure a \LaTeX{} document}
+\title{Assignment 1: CS205}
 
 \author{Joshua Ross\\
+	RUID: 185008511\\
 	Rutgers University - New Brunswick\\
 	\texttt{jjr276@scarletmail.rutgers.edu}}
 
@@ -18,7 +19,8 @@
 \maketitle
 
 \section*{1.1}
-\subsection*{32c)}
+\subsubsection*{32c)}
+Problem: Construct a truth table for $p \bigoplus (p \bigvee q)$
 \begin{center}
 \begin{tabular}{|c|c|c|c|}
 \hline
@@ -31,6 +33,72 @@ F & F & F & F \\
 \hline
 \end{tabular}
 \end{center}
-\subsection*{32f)}
+\subsubsection*{32f)}
+Problem: Construct a truth table for $(p \bigoplus q) \bigwedge (p \bigoplus \neg q)$
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+$p$ & $q$ & $\neg q$ & $p \bigoplus q$ & $p \bigoplus \neg q$ & $(p \bigoplus q) \bigwedge (p \bigoplus \neg q)$ \\
+\hline
+T & T & F & F & T & F\\
+T & F & T & F & F & F\\
+F & T & F & T & F & F\\
+F & F & F & F & T & F\\
+\hline
+\end{tabular}
+\end{center}
+\subsubsection*{36c)}
+Problem: Construct a truth table for $(p \bigvee q) \bigvee r$
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+$p$ & $q$ & $r$ & $p \bigvee q$ & $(p \bigvee q) \bigvee r$ \\
+\hline
+T & T & T & T & T \\
+T & T & F & T & T \\
+T & F & T & T & T \\
+T & F & F & T & T \\
+F & T & T & T & T \\
+F & T & F & T & T \\
+F & F & T & F & T \\
+F & F & F & F & F \\
+\hline
+\end{tabular}
+\end{center}
+\subsubsection*{36f)}
+Problem: Construct a truth table for $(p \bigwedge q) \bigvee r$
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+$p$ & $q$ & $r$ & $\neg r$  & $p \bigwedge q$ & $(p \bigwedge q) \bigvee r$ \\
+\hline
+T & T & T & F & T & T\\
+T & T & F & T & T & T\\
+T & F & T & F & F & F\\
+T & F & F & T & F & T\\
+F & T & T & F & F & F\\
+F & T & F & T & F & T\\
+F & F & T & F & F & F\\
+F & F & F & T & F & T\\
+\hline
+\end{tabular}
+\end{center}
+\section*{1.3}
+\subsubsection*{26)}
+Problem: Use boolean algebra to show that $\neg p \rightarrow (q \rightarrow r)$ and $q \rightarrow (p \bigvee r)$ are logically equivalent
+
+\begin{itemize}
+	\item $\neg p \rightarrow (q \rightarrow r) \equiv p \bigvee (\neg q \bigvee r)$ by the implication law
+	\item $p \bigvee (\neg q \bigvee r) \equiv \neg q \bigvee (p \bigvee r)$ by the commutative and associative laws
+	\item $\neg q \bigvee (p \bigvee r) \equiv q \rightarrow (p \bigvee q)$ by the implication law 
+\end{itemize}
+\subsubsection*{30)}
+Problem: Use boolean algebra to show that $(p \bigvee q) \bigwedge (\neg p \bigvee r) \rightarrow (q \bigvee r)$ is a tautology
+
+\begin{itemize}
+	\item $\neg p \rightarrow (q \rightarrow r) \equiv p \bigvee (\neg q \bigvee r)$ by the implication law
+	\item $p \bigvee (\neg q \bigvee r) \equiv \neg q \bigvee (p \bigvee r)$ by the commutative and associative laws
+	\item $\neg q \bigvee (p \bigvee r) \equiv q \rightarrow (p \bigvee q)$ by the implication law 
+\end{itemize}
 
 \end{document}
