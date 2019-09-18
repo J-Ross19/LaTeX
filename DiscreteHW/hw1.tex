@@ -41,7 +41,7 @@ Problem: Construct a truth table for $(p \bigoplus q) \bigwedge (p \bigoplus \ne
 $p$ & $q$ & $\neg q$ & $p \bigoplus q$ & $p \bigoplus \neg q$ & $(p \bigoplus q) \bigwedge (p \bigoplus \neg q)$ \\
 \hline
 T & T & F & F & T & F\\
-T & F & T & F & F & F\\
+T & F & T & T & F & F\\
 F & T & F & T & F & F\\
 F & F & F & F & T & F\\
 \hline
@@ -70,7 +70,7 @@ Problem: Construct a truth table for $(p \bigwedge q) \bigvee r$
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|}
 \hline
-$p$ & $q$ & $r$ & $\neg r$  & $p \bigwedge q$ & $(p \bigwedge q) \bigvee r$ \\
+$p$ & $q$ & $r$ & $\neg r$  & $p \bigwedge q$ & $(p \bigwedge q) \bigvee \neg r$ \\
 \hline
 T & T & T & F & T & T\\
 T & T & F & T & T & T\\
@@ -88,7 +88,7 @@ F & F & F & T & F & T\\
 Problem: Use boolean algebra to show that $\neg p \rightarrow (q \rightarrow r)$ and $q \rightarrow (p \bigvee r)$ are logically equivalent
 
 \begin{itemize}
-	\item $\neg p \rightarrow (q \rightarrow r) \equiv p \bigvee (\neg q \bigvee r)$ by the implication law
+	\item $\neg p \rightarrow (q \rightarrow r) \equiv \neg p \rightarrow (\neg q \bigvee r)\equiv p \bigvee (\neg q \bigvee r)$ by the implication law
 	\item $p \bigvee (\neg q \bigvee r) \equiv \neg q \bigvee (p \bigvee r)$ by the commutative and associative laws
 	\item $\neg q \bigvee (p \bigvee r) \equiv q \rightarrow (p \bigvee q)$ by the implication law 
 \end{itemize}
@@ -96,10 +96,15 @@ Problem: Use boolean algebra to show that $\neg p \rightarrow (q \rightarrow r)$
 Problem: Use boolean algebra to show that $(p \bigvee q) \bigwedge (\neg p \bigvee r) \rightarrow (q \bigvee r)$ is a tautology
 
 \begin{itemize}
-	\item $(p \bigvee q) \bigwedge (\neg p \bigvee r) \rightarrow (q \bigvee r) \equiv \neg ((p \bigvee q) \bigwedge (\neg p \bigvee r)) \bigvee (\neg p \bigvee r)$ by the implication law
-	\item $\neg ((p \bigvee q) \bigwedge (\neg p \bigvee r)) \bigvee (\neg p \bigvee r) \equiv \neg (p \bigvee q) \bigvee \neg (\neg p \bigvee r) \bigvee (\neg p \bigvee r)$ by De Morgan law
-	\item $\neg (p \bigvee q) \bigvee \neg (\neg p \bigvee r) \bigvee (\neg p \bigvee r) \equiv \neg (p \bigvee q) \bigvee T$ by the Associative and Negation law
-	\item $\neg (p \bigvee q) \bigvee T \equiv T$ by Domination law, proving $(p \bigvee q) \bigwedge (\neg p \bigvee r) \rightarrow (q \bigvee r)$ is a tautology 
+	\item $(p \bigvee q) \bigwedge (\neg p \bigvee r) \rightarrow (q \bigvee r) \equiv \neg ((p \bigvee q) \bigwedge (\neg p \bigvee r)) \bigvee (q \bigvee r)$ by the implication law
+	\item $\neg ((p \bigvee q) \bigwedge (\neg p \bigvee r)) \bigvee (q \bigvee r) \equiv \neg (p \bigvee q) \bigvee \neg (\neg p \bigvee r) \bigvee (q \bigvee r) \equiv (\neg p \bigwedge \neg  q) \bigvee (p \bigwedge \neg r) \bigvee (q \bigvee r)$ by De Morgan law
+	\item $(\neg p \bigwedge \neg  q) \bigvee (p \bigwedge \neg r) \bigvee (q \bigvee r) \equiv ((\neg p \bigwedge \neg q) \bigvee q) \bigvee ((p \bigwedge \neg r) \bigvee r)$ by commutative and associative laws
+
+	\item $((\neg p \bigwedge \neg q) \bigvee q) \bigvee ((p \bigwedge \neg r) \bigvee r) \equiv ((\neg p \bigvee q) \bigwedge (\neg q
+\bigvee q)) \bigvee ((p \bigvee r) \bigwedge (\neg r \bigvee r))$ by the distributive law
+	\item $((\neg p \bigvee q) \bigwedge (\neg q \bigvee q)) \bigvee ((p \bigvee r) \bigwedge (\neg r \bigvee r)) \equiv ((\neg p \bigvee q) \bigwedge T) \bigvee ((p \bigvee r) \bigwedge T)) \equiv \neg p \bigvee q \bigvee p \bigvee r$ by the negation and domination laws respectively
+	\item $\neg p \bigvee q \bigvee p \bigvee r \equiv (p \bigvee \neg p) \bigvee r \bigvee q$ by commutative and associative laws
+	\item $(\neg p \bigvee p) \bigvee q \bigvee r \equiv T \bigvee q \bigvee r \equiv T$ by negation and domination laws respectively, proving that this is a tautology
 \end{itemize}
 
 \section*{1.4}
